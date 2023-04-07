@@ -4,7 +4,7 @@
 //  Authors : <Claire, Amber, Ethan, Jay>
 //  Date :    <04 / 06 / 23>
 //  Description :
-//       <An epic choose your own adventure game using if and while statements>
+//       <An epic choose your own adventure game using if and while statements >
 
 //===========================================================
 
@@ -26,7 +26,6 @@ int main()
     string dogName = "";
     bool proceed = true;
 
-    //Main game loop
     while (proceed)
     {
         //Input
@@ -37,7 +36,7 @@ int main()
         cout << "\nNice to meet you, " << heroName << ". And it is an honor to meet you, " << dogName << ".\n";
 
         cout << "\nYou and your dog are out for a nice little walk. Your dog sniffs a flower. It's a pretty nice flower.";
-        cout << "\n1)Pick flower\n2)Leave flower";
+        cout << "1)Pick flower\n2)Leave flower\n";
 
         /* 
         if we add health maybe the flower can secretly give like 50 health ?
@@ -61,7 +60,7 @@ int main()
                 cout << "\nYou try to stab the dragon but your sword is too short. The dragon sets you aflame and you die a horrible death.\n";
             }
             else if (input == "2") {
-                cout << "\nYou shield yourself from the dragon's firey breath. The fire bounces back to the dragon and burns it alive. You manage to make your way into the castle. Inside is your dog, " << dogName << ". Do you pet him?\n1)Yes\n2)No\n";
+                cout << "\nYou shield yourself from the dragon's firey breath. The fire bounces back to the dragon and burns it alive. You manage to make your way into the castle. Inside is your dog. Do you pet it?\n1)Yes\n2)No\n";
                 cin >> input;
 
                 if (input == "1") {
@@ -95,15 +94,15 @@ int main()
                     cout << "\nThe dragon sees you coming and flicks you into oblivion. You suffer a quick and painless death.\n";
                 }
                 else if (input == "2") {
-                    cout << "\nYou make your way into the castle and find " << dogName << " again! Do you pet him?\n";
+                    cout << "\nYou make your way into the castle and find the dog. Do you pet it?\n";
                     cout << "1)Yes\n2)No\n";
                     cin >> input;
 
                     if (input == "1") {
-                        cout << "\n" << dogName << " lends you its credit card and tells you to buy yourself something nice. You win.\n";
+                        cout << "\nThe dog lends you its credit card and tells you to buy yourself something nice. You win.\n";
                     }
                     else if (input == "2") {
-                        cout << "\nYou stare blankly at " << dogName << " and die of old age.\n";
+                        cout << "\nYou stare blankly at the dog and die of old age.\n";
                     }
                     else {
                         idiot();
@@ -130,3 +129,6 @@ int main()
     }
     cout << "\n~The end!~\n";
 }
+
+    
+   
