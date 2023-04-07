@@ -35,7 +35,7 @@ int main()
         cin >> dogName;
         cout << "\nNice to meet you, " << heroName << ". And it is an honor to meet you, " << dogName << ".\n";
 
-        cout << "\nYou and your dog are out for a nice little walk. Your dog sniffs a flower. It's a pretty nice flower.";
+        cout << "\nYou and " << dogName << " are out for a nice little walk. Your dog sniffs a flower. It's a pretty nice flower.";
         cout << "1)Pick flower\n2)Leave flower\n";
 
         /* 
@@ -46,9 +46,9 @@ int main()
         break;}
         */
 
-        cout << "\nBut what is this?! A dragon approaches! It tries to attack you, but " << dogName << " stands in the way and saves your life.\nThe dragon has kidnapped your dog and taken him away.\n";
+        cout << "\nBut what is this?! A dragon approaches! It tries to attack you, but " << dogName << " stands in the way and saves your life.\nThe dragon has kidnapped " << dogName << " and taken him away.\n";
         cout << "You follow the dragon and find yourself in front of a grand castle. \nA large door is in front of you, but there is one behind the castle, too.";
-        cout << "\n\nWhich door do you go through?\n1)Front\n2)Back\n";
+        cout << "\nWhich door do you go through?\n1)Front\n2)Back\n";
         cin >> input;
         //Output and Processing
         if (input == "1") {
@@ -94,15 +94,15 @@ int main()
                     cout << "\nThe dragon sees you coming and flicks you into oblivion. You suffer a quick and painless death.\n";
                 }
                 else if (input == "2") {
-                    cout << "\nYou make your way into the castle and find the dog. Do you pet it?\n";
+                    cout << "\nYou make your way into the castle and find " << dogName << ". Do you pet it?\n";
                     cout << "1)Yes\n2)No\n";
                     cin >> input;
 
                     if (input == "1") {
-                        cout << "\nThe dog lends you its credit card and tells you to buy yourself something nice. You win.\n";
+                        cout << "\n" << dogName << " lends you his credit card and tells you to buy yourself something nice. You win.\n";
                     }
                     else if (input == "2") {
-                        cout << "\nYou stare blankly at the dog and die of old age.\n";
+                        cout << "\nYou stare blankly at " << dogName << " and die of old age.\n";
                     }
                     else {
                         idiot();
