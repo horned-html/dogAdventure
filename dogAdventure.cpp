@@ -128,8 +128,5 @@ int main()
             proceed = false;
         }
     }
-    cout << "~The end!~\n";
+    cout << "\n~The end!~\n";
 }
-
-    
-   
