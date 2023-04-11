@@ -2,9 +2,9 @@
 
 //  Title:    <dogAdventure.cpp>
 //  Authors : <Claire, Amber, Ethan, Jay>
-//  Date :    <04 / 06 / 23>
+//  Date :    <April 2023>
 //  Description :
-//       <An epic choose your own adventure game using if and while statements >
+//       <An epic choose your own adventure game using if and while statements>
 
 //===========================================================
 
@@ -29,19 +29,19 @@ int Attack() {
         cin >> Desicion;
 
         if (Desicion == "1") {
-            DragonHP = DragonHP - Sword_Slash;
+            DragonHP -= Sword_Slash;
             cout << "\nYou Leap at the dragon jumping with all your force, using all your force you have you slash the dragon with your sword\n";// Feel free to change text
             cout << "The dragon's HP is " << DragonHP;
             Turn_End = true;
         }
         else if (Desicion == "2") {
-            DragonHP = DragonHP - Sword_Slam;
+            DragonHP -= Sword_Slam;
             cout << "\nYou remember the dragon stealing your dog filling you with anger, you slam the ground with your sword causing spark to fly twards the dragon\n"; // Feel free to change text
             cout << "The dragon's HP is " << DragonHP;
             Turn_End = true;
         }
         else if (Desicion == "3") {
-            DragonHP = DragonHP - Quick_Punch;
+            DragonHP -= Quick_Punch;
             cout << "\nYou charge toward the dragon and punch him in the snout\n"; // Feel free to change text
             cout << "The dragon's HP is " << DragonHP;
             Turn_End = true;
@@ -50,30 +50,30 @@ int Attack() {
         if ((DragonHP >= 50) && (Turn_End == true)) {
             cout << "\nIts the dragons turn to attack\n"; // Feel free to change text
             cout << "The dragon starts flapping his wings causing you to hit the wall\n"; // Feel free to change text
-            HP = HP - dragonwings;
+            HP -= dragonwings;
             cout << "Your HP is now " << HP << endl;
             Turn_End = false;
         }
         else if ((DragonHP <= 49) && (DragonHP >= 1) && (Turn_End == true)) {
-            cout << "Dragon flares his nostrals as he begins to get pissed\n";  // Feel free to change text
+            cout << "\nDragon flares his nostrals as he begins to get pissed\n";  // Feel free to change text
             cout << "He breaths out a huge flame of fire goign stright at you\n";   // Feel free to change text
             cout << "You still manage to be able to fight\n"; // Feel free to change text
-            HP = HP - DragonFlame;
+            HP -= DragonFlame;
             cout << "Your HP is now " << HP << endl;
             Turn_End = false;
         }
 
         if (DragonHP <= 0) {
             cout << "\nYou have slain the dragon!\n";
+            return 1;
         }
 
         if (HP <= 0) {
             cout << "\nYou have been slain by the dragon\n";
+            return 2;
         }
 
     }
-
-    return 0;
 }
 
 int idiot() {
@@ -81,34 +81,23 @@ int idiot() {
     return 0;
 }
 
-int main()
-{
+int main() {
     //Declaration of Variables
     string heroName = "";
     string input = "";
     string dogName = "";
     bool proceed = true;
-    double HP = 100;
-    double DragonHP = 100;
-    double DragonFlame = 30;
-    double dragonwings = 10;
-    double Sword_Slash = 15;
-    double Sword_Slam = 30;
-    double Quick_Punch = 10;
-    string Desicion = "";
-    bool Turn_End = false;
 
     while (proceed)
     {
         //Input
-        cout << "What is your hero's name? ";
+        cout << "What is your hero's name? "; // Note: make this remember the previous game's inputs
         cin >> heroName;
         cout << "What is your doggie's name? ";
         cin >> dogName;
         cout << "\nNice to meet you, " << heroName << ". And it is an honor to meet you, " << dogName << ".\n";
 
-        cout << "\nYou and " << dogName << " are out for a nice little walk. Your dog sniffs a flower. It's a pretty nice flower.";
-        cout << "1)Pick flower\n2)Leave flower\n";
+        cout << "\nYou and " << dogName << " are out for a nice little walk. Your dog sniffs a flower. It's a pretty nice flower.\n";
 
         /*
         if we add health maybe the flower can secretly give like 50 health ?
@@ -119,8 +108,8 @@ int main()
         */
 
         cout << "\nBut what is this?! A dragon approaches! It tries to attack you, but " << dogName << " stands in the way and saves your life.\nThe dragon has kidnapped " << dogName << " and taken him away.\n";
-        cout << "You follow the dragon and find yourself in front of a grand castle. \nA large door is in front of you, but there is one behind the castle, too.";
-        cout << "\nWhich door do you go through?\n1)Front\n2)Back\n";
+        cout << "You follow the dragon and find yourself in front of a grand castle. \nA large door is in front of you, but there is one behind the castle, too.\n";
+        cout << "Which door do you go through?\n1)Front\n2)Back\n";
         cin >> input;
         //Output and Processing
         if (input == "1") {
@@ -129,7 +118,9 @@ int main()
             cin >> input;
 
             if (input == "1") {
-                Attack();
+                if (Attack() == 1) {
+                    cout << "\nAfter defeating the dragon, you make your way to " << dogName << " and pet him.\n";
+                }
             }
             else if (input == "2") {
                 cout << "\nYou shield yourself from the dragon's firey breath. The fire bounces back to the dragon and burns it alive. You manage to make your way into the castle. Inside is your dog. Do you pet it?\n1)Yes\n2)No\n";
@@ -155,7 +146,9 @@ int main()
             cin >> input;
 
             if (input == "1") {
-                Attack();
+                if (Attack() == 1) {
+                    cout << "You make your way through the back and find your way to " << dogName << ".\n";
+                }
             }
             else if (input == "2") {
                 cout << "\nYou sneak around the dragon. Do you want to attack the dragon now?\n";
@@ -163,7 +156,9 @@ int main()
                 cin >> input;
 
                 if (input == "1") {
-                    Attack();
+                    if (Attack() == 1) {
+                        cout << "Thank goodness you decided to actually kill the dragon!\n";
+                    }
                 }
                 else if (input == "2") {
                     cout << "\nYou make your way into the castle and find " << dogName << ". Do you pet it?\n";
@@ -199,5 +194,5 @@ int main()
             proceed = false;
         }
     }
-    cout << "\n~The end!~\n";
+    cout << "\n~The end!~\n" << endl;
 }
