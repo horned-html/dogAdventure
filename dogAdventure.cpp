@@ -1,12 +1,12 @@
-//===========================================================
-
+//===============================================================================
+//
 //  Title:    <dogAdventure.cpp>
 //  Authors : <Claire, Amber, Ethan, Jay>
 //  Date :    <04 / 06 / 23>
 //  Description :
-//       <An epic choose your own adventure game using if and while statements >
-
-//===========================================================
+//       <An epic choose your own adventure game using if and while statements>
+//
+//===============================================================================
 
 #include <iostream>
 #include <string>
@@ -18,17 +18,16 @@ int idiot() {
     return 0;
 }
 
-int main()
-{
+int main() {
     //Declaration of Variables
     string heroName = "";
     string input = "";
     string dogName = "";
     bool proceed = true;
 
-    while (proceed)
-    {
+    while (proceed) {
         //Input
+        cout << "\n~Thank you for playing Dog Adventure!~\n\n";
         cout << "What is your hero's name? ";
         cin >> heroName;
         cout << "What is your doggie's name? ";
@@ -36,9 +35,9 @@ int main()
         cout << "\nNice to meet you, " << heroName << ". And it is an honor to meet you, " << dogName << ".\n";
 
         cout << "\nYou and " << dogName << " are out for a nice little walk. Your dog sniffs a flower. It's a pretty nice flower.";
-        cout << "1)Pick flower\n2)Leave flower\n";
+        //cout << "\n1)Pick flower\n2)Leave flower\n";
 
-        /* 
+        /*
         if we add health maybe the flower can secretly give like 50 health ?
         if (input == "1") {
         health = health + 50;}
@@ -50,6 +49,7 @@ int main()
         cout << "You follow the dragon and find yourself in front of a grand castle. \nA large door is in front of you, but there is one behind the castle, too.";
         cout << "\nWhich door do you go through?\n1)Front\n2)Back\n";
         cin >> input;
+
         //Output and Processing
         if (input == "1") {
             cout << "\nYou go through the front door. It is guarded by the dragon. What do you do?\n";
@@ -130,5 +130,4 @@ int main()
     cout << "\n~The end!~\n";
 }
 
-    
-   
+
