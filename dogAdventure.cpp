@@ -10,10 +10,12 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <time.h>
 
 using namespace std;
 
-int Attack() {
+int Attack(int extraHealth) {
     double HP = 100;
     double DragonHP = 100;
     double DragonFlame = 30;
@@ -23,6 +25,8 @@ int Attack() {
     double Quick_Punch = 10;
     string Desicion;
     bool Turn_End = false;
+
+    HP += extraHealth;
 
     while (((HP >= 1) && DragonHP >= 1) && (Turn_End == false)) {
         cout << "It's your turn to attack! What attack would you like to use?\n\n1) Sword Slash\n2) Spark Wall\n3) Quick Punch\n";// Feel free to change text
@@ -87,25 +91,28 @@ int main() {
     string input = "";
     string dogName = "";
     bool proceed = true;
+    int extraHealth = 0;
 
     while (proceed)
     {
+        srand((unsigned)time(NULL));
+
         //Input
-        cout << "What is your hero's name? "; // Note: make this remember the previous game's inputs
-        cin >> heroName;
-        cout << "What is your doggie's name? ";
-        cin >> dogName;
+        if (heroName == "") {
+            cout << "What is your hero's name? "; // Note: make this remember the previous game's inputs
+            cin >> heroName;
+            cout << "What is your doggie's name? ";
+            cin >> dogName;
+        }
+
         cout << "\nNice to meet you, " << heroName << ". And it is an honor to meet you, " << dogName << ".\n";
-
         cout << "\nYou and " << dogName << " are out for a nice little walk. Your dog sniffs a flower. It's a pretty nice flower.\n";
-
-        /*
-        if we add health maybe the flower can secretly give like 50 health ?
+        cout << "Do you want to take it?\n1)Yes\n2)No\n";
+        cin >> input;
         if (input == "1") {
-        health = health + 50;}
-        else if (input == "2") {
-        break;}
-        */
+            extraHealth = 25 - rand()%50;
+            cout << "Added " << extraHealth << " health!\n";
+        }
 
         cout << "\nBut what is this?! A dragon approaches! It tries to attack you, but " << dogName << " stands in the way and saves your life.\nThe dragon has kidnapped " << dogName << " and taken him away.\n";
         cout << "You follow the dragon and find yourself in front of a grand castle. \nA large door is in front of you, but there is one behind the castle, too.\n";
@@ -118,7 +125,7 @@ int main() {
             cin >> input;
 
             if (input == "1") {
-                if (Attack() == 1) {
+                if (Attack(extraHealth) == 1) {
                     cout << "\nAfter defeating the dragon, you make your way to " << dogName << " and pet him.\n";
                 }
             }
@@ -146,7 +153,7 @@ int main() {
             cin >> input;
 
             if (input == "1") {
-                if (Attack() == 1) {
+                if (Attack(extraHealth) == 1) {
                     cout << "You make your way through the back and find your way to " << dogName << ".\n";
                 }
             }
@@ -156,7 +163,7 @@ int main() {
                 cin >> input;
 
                 if (input == "1") {
-                    if (Attack() == 1) {
+                    if (Attack(extraHealth) == 1) {
                         cout << "Thank goodness you decided to actually kill the dragon!\n";
                     }
                 }
