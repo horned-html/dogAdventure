@@ -93,8 +93,7 @@ int main() {
     bool proceed = true;
     int extraHealth = 0;
 
-    while (proceed)
-    {
+    while (proceed) {
         srand((unsigned)time(NULL));
 
         //Input
@@ -111,7 +110,12 @@ int main() {
         cin >> input;
         if (input == "1") {
             extraHealth = 25 - rand()%50;
-            cout << "Added " << extraHealth << " health!\n";
+            if (extraHealth > 0) {
+                cout << "Added " << extraHealth << " health!\n";
+            }
+            else if (extraHealth < 0) {
+                cout << "Removed " << extraHealth * (-1) << " health\n";
+            }
         }
 
         cout << "\nBut what is this?! A dragon approaches! It tries to attack you, but " << dogName << " stands in the way and saves your life.\nThe dragon has kidnapped " << dogName << " and taken him away.\n";
