@@ -28,6 +28,8 @@ int Attack(int extraHealth) {
 
     HP += extraHealth;
 
+    cout << "Thank you for playing DOG ADVENTURE!\n\n";
+
     while (((HP >= 1) && DragonHP >= 1) && (Turn_End == false)) {
         cout << "It's your turn to attack! What attack would you like to use?\n\n1) Sword Slash\n2) Spark Wall\n3) Quick Punch\n";
         cin >> Desicion;
@@ -81,7 +83,7 @@ int Attack(int extraHealth) {
 }
 
 int idiot() {
-    cout << "You fail to enter in a valid command. Your character stands still and dies of old age.\n";
+    cout << "\nYou fail to enter in a valid command. Your character stands still and dies of old age.\n";
     return 0;
 }
 
@@ -108,7 +110,7 @@ int main() {
         cout << "\nYou and " << dogName << " are out for a nice little walk. Your dog sniffs a flower. It's a pretty nice flower.\n";
         cout << "Do you want to take it?\n1)Yes\n2)No\n";
         cin >> input;
-        
+
         if (input == "1") {
             extraHealth = 25 - rand()%50;
             if (extraHealth > 0) {
@@ -221,7 +223,7 @@ int main() {
             idiot();
         }
 
-        cout << "\nDo you want to try again?\n1)Yes\n2)No\n";
+        cout << "\nDo you want to play again?\n1)Yes\n2)No\n";
         cin >> input;
 
         if (input != "1") {
