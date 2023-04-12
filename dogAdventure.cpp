@@ -136,7 +136,7 @@ int main() {
 
             if (input == "1") {
                 if (Attack(extraHealth) == 1) {
-                    cout << "\nAfter defeating the dragon, you make your way to " << dogName << " do you pet him?.\n1)Yes\n2)No\n";
+                    cout << "\nAfter defeating the dragon, you make your way through the castle's corridors to reunite with " << dogName << "! Do you pet him?.\n1)Yes\n2)No\n";
                     cin >> input;
 
                     if (input == "1") {
@@ -182,7 +182,7 @@ int main() {
                         cout << "\n" << dogName << " wags his tail and barks for joy. You are hapily reunited.\n";
                     }
                     else if (input == "2") {
-                        cout << "\n" << dogName << " questions why you went through all the trouble of defeating the dragon only to not pet him. He turns away from you and jumps into the lava moat surrounding the castle.\n";
+                        cout << "\n" << dogName << " questions why you went through all the trouble of defeating the dragon only to not pet him. He turns away from you and jumps into the lava moat surrounding the castle and dies.\n";
                     }
                 }
             }
@@ -197,7 +197,7 @@ int main() {
                     }
                 }
                 else if (input == "2") {
-                    cout << "\nYou make your way into the castle and find " << dogName << ". Do you pet it?\n";
+                    cout << "\nAfter sneaking past the dragon, you see " << dogName << " huddled by the castle window. Do you pet him?\n";
                     cout << "1)Yes\n2)No\n";
                     cin >> input;
 
@@ -205,7 +205,7 @@ int main() {
                         cout << "\n" << dogName << " lends you his credit card and tells you to buy yourself something nice. You win.\n";
                     }
                     else if (input == "2") {
-                        cout << "\nYou stare blankly at " << dogName << " and die of old age.\n";
+                        cout << "\nYou stare blankly at " << dogName << " and die of old age. How pathetic.\n";
                     }
                     else {
                         idiot();
