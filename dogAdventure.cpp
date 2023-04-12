@@ -101,9 +101,9 @@ int main() {
         //Input
         if (heroName == "") {
             cout << "What is your hero's name? "; 
-            cin >> heroName;
+            getline(cin, heroName);
             cout << "What is your doggie's name? ";
-            cin >> dogName;
+            getline(cin, dogName);
         }
 
         cout << "\nNice to meet you, " << heroName << ". And it is an honor to meet you, " << dogName << ".\n";
