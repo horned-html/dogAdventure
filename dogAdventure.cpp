@@ -15,7 +15,7 @@
 
 using namespace std;
 
-int Attack(int extraHealth) {
+int Attack(int extraHealth, string dogName) {
     double HP = 100;
     double DragonHP = 100;
     double DragonFlame = 30;
@@ -73,7 +73,7 @@ int Attack(int extraHealth) {
         }
 
         if (HP <= 0) {
-            cout << "\nYou have been slain by the dragon\n";
+            cout << "\nYou have been slain by the dragon. " << dogName << " is doomed to perish.\n";
             return 2;
         }
 
@@ -135,7 +135,7 @@ int main() {
             cin >> input;
 
             if (input == "1") {
-                if (Attack(extraHealth) == 1) {
+                if (Attack(extraHealth, dogName) == 1) {
                     cout << "\nAfter defeating the dragon, you make your way through the castle's corridors to reunite with " << dogName << "! Do you pet him?.\n1)Yes\n2)No\n";
                     cin >> input;
 
@@ -174,7 +174,7 @@ int main() {
             cin >> input;
 
             if (input == "1") {
-                if (Attack(extraHealth) == 1) {
+                if (Attack(extraHealth, dogName) == 1) {
                     cout << "\nYou make your way through the back and find your way to " << dogName << ". Do you pet him?\n1)Yes\n2)No\n";
                     cin >> input;
 
@@ -192,7 +192,7 @@ int main() {
                 cin >> input;
 
                 if (input == "1") {
-                    if (Attack(extraHealth) == 1) {
+                    if (Attack(extraHealth, dogName) == 1) {
                         cout << "\nThank goodness you decided to actually kill the dragon! You and " << dogName << " are finally reunited!\n";
                     }
                 }
