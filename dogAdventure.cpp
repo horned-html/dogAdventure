@@ -59,9 +59,9 @@ int Attack(int extraHealth) {
             Turn_End = false;
         }
         else if ((DragonHP <= 49) && (DragonHP >= 1) && (Turn_End == true)) {
-            cout << "\nDragon flares his nostrals as he begins to get pissed.\n"; 
+            cout << "\nThe dragon flares his nostrals as he begins to get pissed.\n"; 
             cout << "He breaths out a huge flame of fire going stright at you.\n";  
-            cout << "You still manage stay in the fight.\n"; 
+            cout << "You still manage to stay in the fight.\n"; 
             HP -= DragonFlame;
             cout << "Your HP is now " << HP << endl;
             Turn_End = false;
