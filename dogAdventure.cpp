@@ -76,7 +76,6 @@ int Attack(int extraHealth, string dogName) {
             cout << "\nYou have been slain by the dragon. " << dogName << " is doomed to perish.\n";
             return 2;
         }
-
     }
 }
 
@@ -123,6 +122,12 @@ int main() {
                 cout << "You smell the flower and it is a lovely scent.\n";
             }
         }
+        else if (input == "2") {
+            cout << "You choose not to take the flower; you don't wanna gamble all your HP away already.\n";
+        }
+        else {
+            idiot();
+        }
 
         cout << "\nBut what is this?! A dragon approaches! It tries to attack you, but " << dogName << " stands in the way and saves your life.\nThe dragon has kidnapped " << dogName << " and taken him away.\n";
         cout << "You follow the dragon and find yourself in front of a grand castle. \nA large door is in front of you, but there is one behind the castle, too.\n";
@@ -151,7 +156,7 @@ int main() {
                 }
             }
             else if (input == "2") {
-                cout << "\nYou shield yourself from the dragon's firey breath. The fire bounces back to the dragon and burns it alive. You manage to make your way into the castle. Inside is your dog. Do you pet it?\n1)Yes\n2)No\n";
+                cout << "\nYou shield yourself from the dragon's firey breath. The fire bounces back to the dragon and burns it alive. You manage to make your way into the castle. Inside is your dog. Do you pet him?\n1)Yes\n2)No\n";
                 cin >> input;
 
                 if (input == "1") {
