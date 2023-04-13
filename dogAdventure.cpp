@@ -29,6 +29,11 @@ int Attack(int extraHealth, string dogName) {
     HP = extraHealth;
 
     while (((HP >= 1) && DragonHP >= 1) && (Turn_End == false)) {
+        // Calculating damage amounts
+        if (DragonHP < 40) {
+            Sword_Slam = 5;
+        }
+
         cout << "It's your turn to attack! What attack would you like to use?\n\n1) Sword Slash\n2) Spark Wall\n3) Quick Punch\n";
         cin >> Desicion;
 
