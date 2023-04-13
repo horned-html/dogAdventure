@@ -123,12 +123,12 @@ int main() {
 
             if (input == "1") {
                 flowerPicker = true;
-                extraHealth = (0 - rand()%50);
+                extraHealth = (20 - rand()%50);
                 if (extraHealth > 0) {
-                    cout << "Good luck! Added " << extraHealth << " health!\n";
+                    cout << "\nGood luck! Added " << extraHealth << " health!\n";
                 }
                 else if (extraHealth < 0) {
-                    cout << "Bad luck! Removed " << extraHealth * (-1) << " health!\n";
+                    cout << "\nBad luck! Removed " << extraHealth * (-1) << " health!\n";
                 }
                 else {
                     cout << "You smell the flower and it is a lovely scent.\n";
@@ -147,6 +147,7 @@ int main() {
             }
             else {
                 idiot();
+                goto playAgain;
             }
 
             if (maxHealth <= 0) {
@@ -155,7 +156,7 @@ int main() {
         } while (flowerPicker);
         
         if (maxHealth <= 0) {
-            cout << "\nYou gambled too much and pass out.\n";
+            cout << "\nYou gambled too much and pass out. " << dogName << " is doomed to an eternity in the dragon's dungeon.\n";
             goto playAgain;
         }
         cout << "\nBut what is this?! A dragon approaches! It tries to attack you, but " << dogName << " stands in the way and saves your life.\nThe dragon has kidnapped " << dogName << " and taken him away.\n";
