@@ -26,7 +26,7 @@ int Attack(int extraHealth, string dogName) {
     string Desicion;
     bool Turn_End = false;
 
-    HP += extraHealth;
+    HP = extraHealth;
 
     while (((HP >= 1) && DragonHP >= 1) && (Turn_End == false)) {
         cout << "It's your turn to attack! What attack would you like to use?\n\n1) Sword Slash\n2) Spark Wall\n3) Quick Punch\n";
@@ -91,10 +91,13 @@ int main() {
     string dogName = "";
     bool proceed = true;
     int extraHealth = 0;
+    int maxHealth = 100;
+    bool flowerPicker = false;
 
     cout << "\nThank you for playing DOG ADVENTURE!\nBy Amber, Claire, Ethan, and Jay. (Team Dog)\n\n";
 
     while (proceed) {
+        maxHealth = 100;
         srand((unsigned)time(NULL)); // Getting a random seed for RNG
 
         //Input
@@ -107,28 +110,46 @@ int main() {
 
         cout << "\nNice to meet you, " << heroName << ". And it is an honor to meet you, " << dogName << ".\n";
         cout << "\nYou and " << dogName << " are out for a nice little walk. Your dog sniffs a flower. It's a pretty nice flower.\n";
-        cout << "Do you want to take it?\n1)Yes\n2)No\n";
-        cin >> input;
 
-        if (input == "1") {
-            extraHealth = 25 - rand()%50;
-            if (extraHealth > 0) {
-                cout << "Good luck! Added " << extraHealth << " health!\n";
-            }
-            else if (extraHealth < 0) {
-                cout << "Bad luck! Removed " << extraHealth * (-1) << " health!\n";
+        do {
+            if (flowerPicker) {
+                cout << "Do you wanna gamble again?\n";
             }
             else {
-                cout << "You smell the flower and it is a lovely scent.\n";
+                cout << "Do you want to take a flower and gamble your health?\n";
             }
-        }
-        else if (input == "2") {
-            cout << "You choose not to take the flower; you don't wanna gamble all your HP away already.\n";
-        }
-        else {
-            idiot();
-        }
+            cout << "1)Yes\n2)No\n";
+            cin >> input;
 
+            if (input == "1") {
+                flowerPicker = true;
+                extraHealth = (25 - rand()%50);
+                if (extraHealth > 0) {
+                    cout << "Good luck! Added " << extraHealth << " health!\n";
+                }
+                else if (extraHealth < 0) {
+                    cout << "Bad luck! Removed " << extraHealth * (-1) << " health!\n";
+                }
+                else {
+                    cout << "You smell the flower and it is a lovely scent.\n";
+                }
+                maxHealth += extraHealth;
+                cout << "Your HP is now " << maxHealth << ".\n";
+            }
+            else if (input == "2") {
+                if (flowerPicker) {
+                    cout << "\nYou decide you're done with gambling today.\n";
+                }
+                else {
+                    cout << "\nYou choose not to take the flower; you don't wanna gamble all your HP away already.\n";
+                }
+                flowerPicker = false;
+            }
+            else {
+                idiot();
+            }
+        } while (flowerPicker);
+        
         cout << "\nBut what is this?! A dragon approaches! It tries to attack you, but " << dogName << " stands in the way and saves your life.\nThe dragon has kidnapped " << dogName << " and taken him away.\n";
         cout << "You follow the dragon and find yourself in front of a grand castle. \nA large door is in front of you, but there is one behind the castle, too.\n";
         cout << "Which door do you go through?\n1)Front\n2)Back\n";
@@ -140,7 +161,7 @@ int main() {
             cin >> input;
 
             if (input == "1") {
-                if (Attack(extraHealth, dogName) == 1) {
+                if (Attack(maxHealth, dogName) == 1) {
                     cout << "\nAfter defeating the dragon, you make your way through the castle's corridors to reunite with " << dogName << "! Do you pet him?.\n1)Yes\n2)No\n";
                     cin >> input;
 
@@ -179,7 +200,7 @@ int main() {
             cin >> input;
 
             if (input == "1") {
-                if (Attack(extraHealth, dogName) == 1) {
+                if (Attack(maxHealth, dogName) == 1) {
                     cout << "\nYou make your way through the back and find your way to " << dogName << ". Do you pet him?\n1)Yes\n2)No\n";
                     cin >> input;
 
@@ -197,7 +218,7 @@ int main() {
                 cin >> input;
 
                 if (input == "1") {
-                    if (Attack(extraHealth, dogName) == 1) {
+                    if (Attack(maxHealth, dogName) == 1) {
                         cout << "\nThank goodness you decided to actually kill the dragon! You and " << dogName << " are finally reunited!\n";
                     }
                 }
