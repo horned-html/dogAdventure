@@ -123,7 +123,7 @@ int main() {
 
             if (input == "1") {
                 flowerPicker = true;
-                extraHealth = (25 - rand()%50);
+                extraHealth = (0 - rand()%50);
                 if (extraHealth > 0) {
                     cout << "Good luck! Added " << extraHealth << " health!\n";
                 }
@@ -148,8 +148,16 @@ int main() {
             else {
                 idiot();
             }
+
+            if (maxHealth <= 0) {
+                flowerPicker = false;
+            }
         } while (flowerPicker);
         
+        if (maxHealth <= 0) {
+            cout << "\nYou gambled too much and pass out.\n";
+            break;
+        }
         cout << "\nBut what is this?! A dragon approaches! It tries to attack you, but " << dogName << " stands in the way and saves your life.\nThe dragon has kidnapped " << dogName << " and taken him away.\n";
         cout << "You follow the dragon and find yourself in front of a grand castle. \nA large door is in front of you, but there is one behind the castle, too.\n";
         cout << "Which door do you go through?\n1)Front\n2)Back\n";
