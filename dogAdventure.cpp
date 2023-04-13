@@ -156,7 +156,7 @@ int main() {
         
         if (maxHealth <= 0) {
             cout << "\nYou gambled too much and pass out.\n";
-            break;
+            goto playAgain;
         }
         cout << "\nBut what is this?! A dragon approaches! It tries to attack you, but " << dogName << " stands in the way and saves your life.\nThe dragon has kidnapped " << dogName << " and taken him away.\n";
         cout << "You follow the dragon and find yourself in front of a grand castle. \nA large door is in front of you, but there is one behind the castle, too.\n";
@@ -257,6 +257,7 @@ int main() {
             idiot();
         }
 
+        playAgain:
         cout << "\nDo you want to play again?\n1)Yes\n2)No\n";
         cin >> input;
 
