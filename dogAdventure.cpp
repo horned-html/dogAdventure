@@ -98,9 +98,10 @@ int main() {
     int extraHealth = 0;
     int maxHealth = 100;
     bool flowerPicker = false;
-    string pronouns[2][5] = {
+    string pronouns[3][5] = {
         {"he", "him", "his", "his", "himself"},
-        {"she", "her", "her", "hers", "herself"}
+        {"she", "her", "her", "hers", "herself"},
+        {"it", "it", "its", "its", "itself"}
     };
     int pronounIndex = 0;
 
@@ -121,8 +122,9 @@ int main() {
         }
 
         pronounIndex -= 1; // Goes back by one number to start at 0
-        if (!(0 <= pronounIndex <= 1)) { // Sets the index to a number that's within the range
-            pronounIndex = 0;
+        if (((pronounIndex != 0) && (pronounIndex != 1))) { // Sets the index to a number that's within the range
+            pronounIndex = 2;
+            cout << "Okay so I'm just gonna call your dog an 'it' if that's ok lol.\n";
         }
 
         cout << "\nNice to meet you, " << heroName << ". And it is an honor to meet you, " << dogName << ".\n";
