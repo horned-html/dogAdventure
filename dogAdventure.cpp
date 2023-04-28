@@ -98,6 +98,11 @@ int main() {
     int extraHealth = 0;
     int maxHealth = 100;
     bool flowerPicker = false;
+    string pronouns[2][5] = {
+        {"he", "him", "his", "his", "himself"},
+        {"she", "her", "her", "hers", "herself"}
+    };
+    int pronounIndex = 0;
 
     cout << "\nThank you for playing DOG ADVENTURE!\nBy Amber, Claire, Ethan, and Jay. (Team Dog)\n\n";
 
@@ -111,6 +116,13 @@ int main() {
             getline(cin, heroName);
             cout << "What is your doggie's name? ";
             getline(cin, dogName);
+            cout << "Is your doggie a boy or a girl?\n1)Boy\n2)Girl\n";
+            cin >> pronounIndex;
+        }
+
+        pronounIndex -= 1; // Goes back by one number to start at 0
+        if (!(0 <= pronounIndex <= 1)) { // Sets the index to a number that's within the range
+            pronounIndex = 0;
         }
 
         cout << "\nNice to meet you, " << heroName << ". And it is an honor to meet you, " << dogName << ".\n";
@@ -176,7 +188,7 @@ int main() {
 
             if (input == "1") {
                 if (Attack(maxHealth, dogName) == 1) {
-                    cout << "\nAfter defeating the dragon, you make your way through the castle's corridors to reunite with " << dogName << "! Do you pet him?.\n1)Yes\n2)No\n";
+                    cout << "\nAfter defeating the dragon, you make your way through the castle's corridors to reunite with " << dogName << "! Do you pet " << pronouns[pronounIndex][1] << "?\n1)Yes\n2)No\n";
                     cin >> input;
 
                     if (input == "1") {
@@ -191,7 +203,7 @@ int main() {
                 }
             }
             else if (input == "2") {
-                cout << "\nYou shield yourself from the dragon's firey breath. The fire bounces back to the dragon and burns it alive. You manage to make your way into the castle. Inside is your dog. Do you pet him?\n1)Yes\n2)No\n";
+                cout << "\nYou shield yourself from the dragon's firey breath. The fire bounces back to the dragon and burns it alive. You manage to make your way into the castle. Inside is your dog. Do you pet " << pronouns[pronounIndex][1] << "?\n1)Yes\n2)No\n";
                 cin >> input;
 
                 if (input == "1") {
@@ -215,14 +227,14 @@ int main() {
 
             if (input == "1") {
                 if (Attack(maxHealth, dogName) == 1) {
-                    cout << "\nYou make your way through the back and find your way to " << dogName << ". Do you pet him?\n1)Yes\n2)No\n";
+                    cout << "\nYou make your way through the back and find your way to " << dogName << ". Do you pet " << pronouns[pronounIndex][1] << "?\n1)Yes\n2)No\n";
                     cin >> input;
 
                     if (input == "1") {
                         cout << "\n" << dogName << " wags his tail and barks for joy. You are hapily reunited.\n";
                     }
                     else if (input == "2") {
-                        cout << "\n" << dogName << " questions why you went through all the trouble of defeating the dragon only to not pet him. He turns away from you and jumps into the lava moat surrounding the castle and dies.\n";
+                        cout << "\n" << dogName << " questions why you went through all the trouble of defeating the dragon only to not pet " << pronouns[pronounIndex][1] << ". He turns away from you and jumps into the lava moat surrounding the castle and dies.\n";
                     }
                 }
             }
@@ -237,12 +249,12 @@ int main() {
                     }
                 }
                 else if (input == "2") {
-                    cout << "\nAfter sneaking past the dragon, you see " << dogName << " huddled by the castle window. Do you pet him?\n";
+                    cout << "\nAfter sneaking past the dragon, you see " << dogName << " huddled by the castle window. Do you pet " << pronouns[pronounIndex][1] << "?\n";
                     cout << "1)Yes\n2)No\n";
                     cin >> input;
 
                     if (input == "1") {
-                        cout << "\n" << dogName << " lends you his credit card and tells you to buy yourself something nice. You win.\n";
+                        cout << "\n" << dogName << " lends you " << pronouns[pronounIndex][2] << " credit card and tells you to buy yourself something nice. You win.\n";
                     }
                     else if (input == "2") {
                         cout << "\nYou stare blankly at " << dogName << " and die of old age. How pathetic.\n";
