@@ -65,7 +65,7 @@ int Attack(int extraHealth, string dogName) {
         }
         else if ((DragonHP <= 49) && (DragonHP >= 1) && (Turn_End == true)) {
             cout << "\nThe dragon flares his nostrals as he begins to get pissed.\n"; 
-            cout << "He breaths out a huge flame of fire going stright at you.\n";  
+            cout << "He breathes out a huge flame of fire going stright at you.\n";  
             cout << "You still manage to stay in the fight.\n"; 
             HP -= DragonFlame;
             cout << "Your HP is now " << HP << endl;
@@ -178,7 +178,7 @@ int main() {
             cout << "\nYou gambled too much and pass out. " << dogName << " is doomed to an eternity in the dragon's dungeon.\n";
             goto playAgain;
         }
-        cout << "\nBut what is this?! A dragon approaches! It tries to attack you, but " << dogName << " stands in the way and saves your life.\nThe dragon has kidnapped " << dogName << " and taken him away.\n";
+        cout << "\nBut what is this?! A dragon approaches! It tries to attack you, but " << dogName << " stands in the way and saves your life.\nThe dragon has kidnapped " << dogName << " and taken " << pronouns[pronounIndex][2] << " away.\n";
         cout << "You follow the dragon and find yourself in front of a grand castle. \nA large door is in front of you, but there is one behind the castle, too.\n";
         cout << "Which door do you go through?\n1)Front\n2)Back\n";
         cin >> input;
